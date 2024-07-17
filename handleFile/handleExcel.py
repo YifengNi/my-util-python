@@ -1,21 +1,12 @@
 import pandas as pd
 import os
-import sys
-import argparse
-
-# 根据旧文件名生成新文件名
-def generate_new_filename(old_filename, new_suffix="_new", new_ext=".xlsx"):
-    # 获取文件名和扩展名
-    base_name, ext = os.path.splitext(old_filename)
-    # 生成新的文件名
-    new_filename = base_name + new_suffix + new_ext
-    return new_filename
+import handleFile.fileUtil as fu
 
 
 # 把csv文件转换成Excel文件，并且把字符串列左边的单引号去掉
 def csv_to_excel(fileName = 'C:\\Users\\用户\\Downloads\\南天门20240530.csv'):
     # newFileName = 'C:\\Users\\用户\\Downloads\\南天门20240419-new.xlsx'
-    newFileName = generate_new_filename(fileName)
+    newFileName = fu.generate_new_filename(fileName)
 
     # 读取CSV文件
     df = pd.read_csv(fileName)
