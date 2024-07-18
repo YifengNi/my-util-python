@@ -38,7 +38,7 @@ def handle_command(command, params):
         filter_content = params[1]
         key_name_list = params[2:]
         # 从日志中获取数据生成Excel文件
-        # 入参示例：generateExcelFromJsonObjInLog C:\\Users\\XPeng\\Downloads\\log-getValueFromJsonInLog.json 采购子订单ERP车辆状态同步，同步参数 vin purchaseSubOrderNo
+        # 入参示例：generateExcelFromJsonObjInLog C:\\Users\\xx\\Downloads\\log-getValueFromJsonInLog.json 采购子订单ERP车辆状态同步，同步参数 vin purchaseSubOrderNo
         hj.generate_excel_from_json_obj_in_log(file_path, filter_content, key_name_list)
 
     else:
