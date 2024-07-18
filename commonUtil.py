@@ -6,6 +6,7 @@ import handleFile.handleJson as hj
 def handle_command(command, params):
     if command == commandList[0]:
         # 把csv文件转换成Excel文件且把字符串列左边的单引号去掉
+        # 入参示例：csvToExcel C:\\Users\\用户\\Downloads\\南天门20240530.csv
         he.csv_to_excel(params[0])
 
     elif command == commandList[1]:
@@ -13,6 +14,8 @@ def handle_command(command, params):
         column_name = params[1]
         string_type = params[2] if len(params) >= 3 else True
         # 根据列数据生成SQL的in条件
+        # 入参示例：formatColumnDataToInClause C:\\Users\\XPeng\\Downloads\\南天门20240507_new.xlsx 'CITYCOMPANY_CODE
+        # 入参示例：formatColumnDataToInClause C:\\Users\\XPeng\\Downloads\\南天门20240507_new.xlsx A
         inCodition = he.get_sql_in_condition_from_column(file_path, column_name, string_type)
         print(f'\033[32m{inCodition}\033[0m')
 
