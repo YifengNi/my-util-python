@@ -63,3 +63,14 @@ def get_sql_in_condition_from_column(file_path, column_name, string_type = True)
     in_condition = ', '.join(formatted_data)
 
     return f"生成in条件语句：\n in ({in_condition})"
+
+
+# 保存数据列表到excel中。data_list中元素类型为字典类型
+def save_data_to_excel(file_path, data_list):
+    # Convert the list of dictionaries into a DataFrame
+    df = pd.DataFrame(data_list)
+
+    # Write the DataFrame to an Excel file
+    df.to_excel(file_path, index=False)
+
+    print(f'\033[32msave_data_to_excel处理结束，结果文件路径：{file_path}\033[0m')
